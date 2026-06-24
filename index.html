@@ -742,7 +742,7 @@ footer a:hover{opacity:1;color:#fff}
 
 <script>
 // CONFIG — paste your Apps Script Web App URL here
-var GAS_URL = 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+var GAS_URL = 'https://script.google.com/macros/s/AKfycbxVNKt-Sz8nh8WaMZG2Kd_n7ctI2ufM7OtMxk2fs_sGVd-xe_O3SYPh1e5CV1exwIAb/exec';
 
 // STATE
 var posts         = [];
@@ -860,7 +860,7 @@ function renderPosts(){
 function loadPosts(){
   var grid = document.getElementById('postsGrid');
 
-  if(GAS_URL === 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE'){
+  if(GAS_URL === 'https://script.google.com/macros/s/AKfycbxVNKt-Sz8nh8WaMZG2Kd_n7ctI2ufM7OtMxk2fs_sGVd-xe_O3SYPh1e5CV1exwIAb/exec'){
     grid.innerHTML = '<div class="empty-blog"><i class="fas fa-plug"></i><p>Google Sheet not connected yet.<br><small>Paste your Apps Script URL into GAS_URL in the script.</small></p></div>';
     return;
   }
@@ -915,7 +915,7 @@ function openPost(id){
 
   openOverlay('postModal');
 
-  if(GAS_URL !== 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE'){
+  if(GAS_URL !== 'https://script.google.com/macros/s/AKfycbxVNKt-Sz8nh8WaMZG2Kd_n7ctI2ufM7OtMxk2fs_sGVd-xe_O3SYPh1e5CV1exwIAb/exec'){
     jsonpRequest({ action: 'getComments', postId: id }, function(res){
       if(res.ok) renderComments(res.comments || []);
       else renderComments([]);
@@ -948,7 +948,7 @@ function submitComment(){
   var name = document.getElementById('cmtName').value.trim();
   var text = document.getElementById('cmtText').value.trim();
   if(!name || !text){ showToast('Please enter your name and comment.'); return; }
-  if(GAS_URL === 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE'){ showToast('GAS_URL not configured yet.'); return; }
+  if(GAS_URL === 'https://script.google.com/macros/s/AKfycbxVNKt-Sz8nh8WaMZG2Kd_n7ctI2ufM7OtMxk2fs_sGVd-xe_O3SYPh1e5CV1exwIAb/exec'){ showToast('GAS_URL not configured yet.'); return; }
 
   var btn = document.querySelector('.cmt-input-row .btn');
   btn.disabled = true;
@@ -974,7 +974,7 @@ function submitComment(){
 
 // REACTIONS
 function doReact(type){
-  if(GAS_URL === 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE'){ showToast('GAS_URL not configured yet.'); return; }
+  if(GAS_URL === 'https://script.google.com/macros/s/AKfycbxVNKt-Sz8nh8WaMZG2Kd_n7ctI2ufM7OtMxk2fs_sGVd-xe_O3SYPh1e5CV1exwIAb/exec'){ showToast('GAS_URL not configured yet.'); return; }
   var p = null;
   for(var i=0;i<posts.length;i++){ if(posts[i].postId===currentPostId){ p=posts[i]; break; } }
   if(!p) return;
@@ -998,7 +998,7 @@ function doReact(type){
 }
 
 function quickReact(id, type){
-  if(GAS_URL === 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE'){ showToast('GAS_URL not configured yet.'); return; }
+  if(GAS_URL === 'https://script.google.com/macros/s/AKfycbxVNKt-Sz8nh8WaMZG2Kd_n7ctI2ufM7OtMxk2fs_sGVd-xe_O3SYPh1e5CV1exwIAb/exec'){ showToast('GAS_URL not configured yet.'); return; }
   var p = null;
   for(var i=0;i<posts.length;i++){ if(posts[i].postId===id){ p=posts[i]; break; } }
   if(!p) return;
@@ -1049,7 +1049,7 @@ function sendMessage(){
     }
   }
 
-  if(GAS_URL === 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE'){
+  if(GAS_URL === 'https://script.google.com/macros/s/AKfycbxVNKt-Sz8nh8WaMZG2Kd_n7ctI2ufM7OtMxk2fs_sGVd-xe_O3SYPh1e5CV1exwIAb/exec'){
     setTimeout(function(){ onDone(true); }, 1200);
     return;
   }
