@@ -860,10 +860,10 @@ function renderPosts(){
 function loadPosts(){
   var grid = document.getElementById('postsGrid');
 
-  if(GAS_URL === 'https://script.google.com/macros/s/AKfycbxVNKt-Sz8nh8WaMZG2Kd_n7ctI2ufM7OtMxk2fs_sGVd-xe_O3SYPh1e5CV1exwIAb/exec'){
-    grid.innerHTML = '<div class="empty-blog"><i class="fas fa-plug"></i><p>Google Sheet not connected yet.<br><small>Paste your Apps Script URL into GAS_URL in the script.</small></p></div>';
+  if(!GAS_URL){
+    grid.innerHTML = 'Google Sheet not connected yet';
     return;
-  }
+}
 
   grid.innerHTML = '<div class="loading-posts"><i class="fas fa-spinner fa-spin" style="font-size:1.4rem"></i><br><small style="margin-top:10px;display:block">Loading posts…</small></div>';
 
