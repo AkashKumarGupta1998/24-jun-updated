@@ -1005,11 +1005,6 @@ function sendMessage(){
     }
   }
 
-  if(GAS_URL === 'https://script.google.com/macros/s/AKfycbxVNKt-Sz8nh8WaMZG2Kd_n7ctI2ufM7OtMxk2fs_sGVd-xe_O3SYPh1e5CV1exwIAb/exec'){
-    setTimeout(function(){ onDone(true); }, 1200);
-    return;
-  }
-
   jsonpRequest({ action:'message', name:name, email:email, subject:subject, message:msg }, function(res){
     onDone(res.ok);
   });
