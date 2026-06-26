@@ -976,8 +976,11 @@ function submitComment(){
 }
 
 // REACTIONS
-function doReact(type){
-  if(GAS_URL === 'https://script.google.com/macros/s/AKfycbxVNKt-Sz8nh8WaMZG2Kd_n7ctI2ufM7OtMxk2fs_sGVd-xe_O3SYPh1e5CV1exwIAb/exec'){ showToast('GAS_URL not configured yet.'); return; }
+function doReact(type){if(!GAS_URL){
+    showToast('GAS URL is missing.');
+    return;
+} 
+                      }
   var p = null;
   for(var i=0;i<posts.length;i++){ if(posts[i].postId===currentPostId){ p=posts[i]; break; } }
   if(!p) return;
@@ -1000,8 +1003,10 @@ function doReact(type){
   jsonpRequest({ action:'react', postId:currentPostId, type:type }, function(){});
 }
 
-function quickReact(id, type){
-  if(GAS_URL === 'https://script.google.com/macros/s/AKfycbxVNKt-Sz8nh8WaMZG2Kd_n7ctI2ufM7OtMxk2fs_sGVd-xe_O3SYPh1e5CV1exwIAb/exec'){ showToast('GAS_URL not configured yet.'); return; }
+function quickReact(id, type)if(!GAS_URL){
+    showToast('GAS URL is missing.');
+    return;
+}
   var p = null;
   for(var i=0;i<posts.length;i++){ if(posts[i].postId===id){ p=posts[i]; break; } }
   if(!p) return;
