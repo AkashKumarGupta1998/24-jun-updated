@@ -888,7 +888,7 @@ function openPost(id){
   document.getElementById('mCat').textContent   = p.category || 'General';
   document.getElementById('mDate').textContent  = fmtDate(p.date);
 
-    var html = '';
+  var html = '';
   if(p.imageUrl && p.imageUrl.trim()){
     html += '<img src="' + esc(p.imageUrl) + '" alt="' + esc(p.title) + '">';
   }
