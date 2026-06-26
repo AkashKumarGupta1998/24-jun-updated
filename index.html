@@ -580,7 +580,6 @@ footer a:hover{opacity:1;color:#fff}
         <div class="lbl">Thoughts & Insights</div>
         <h2 class="ttl" style="margin-bottom:0">Blog</h2>
       </div>
-      <button class="btn btn-o btn-sm" onclick="openAdmin()"><i class="fas fa-lock"></i> Admin</button>
     </div>
     <div class="posts-g" id="postsGrid">
       <div class="loading-posts"><i class="fas fa-spinner fa-spin" style="font-size:1.4rem"></i><br><small style="margin-top:10px;display:block">Loading posts…</small></div>
@@ -1015,38 +1014,6 @@ function sendMessage(){
     onDone(res.ok);
   });
 }
-
-// OVERLAY / MODAL
-function openOverlay(id){
-  document.getElementById(id).classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeOverlay(id){
-  document.getElementById(id).classList.remove('open');
-  document.body.style.overflow = '';
-  if(id==='adminModal'){
-    document.getElementById('passGate').style.display = 'block';
-    document.getElementById('adminPanel').style.display = 'none';
-    document.getElementById('passInput').value = '';
-  }
-}
-document.querySelectorAll('.overlay').forEach(function(o){
-  o.addEventListener('click', function(e){ if(e.target===o) closeOverlay(o.id); });
-});
-
-// ADMIN — password gate only; NO post-writing UI
-function openAdmin(){ openOverlay('adminModal'); }
-function checkPass(){
-  var PASS = 'akash2024'; // change this password
-  if(document.getElementById('passInput').value === PASS){
-    document.getElementById('passGate').style.display  = 'none';
-    document.getElementById('adminPanel').style.display = 'block';
-  } else {
-    showToast('Incorrect password.');
-    document.getElementById('passInput').value = '';
-  }
-}
-
 // THEME
 function applyTheme(t){
   document.documentElement.setAttribute('data-theme', t);
