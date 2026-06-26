@@ -1014,6 +1014,23 @@ function sendMessage(){
     onDone(res.ok);
   });
 }
+  // OVERLAY / MODAL
+function openOverlay(id){
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeOverlay(id){
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+  if(id==='adminModal'){
+    document.getElementById('passGate').style.display = 'block';
+    document.getElementById('adminPanel').style.display = 'none';
+    document.getElementById('passInput').value = '';
+  }
+}
+document.querySelectorAll('.overlay').forEach(function(o){
+  o.addEventListener('click', function(e){ if(e.target===o) closeOverlay(o.id); });
+});
 // THEME
 function applyTheme(t){
   document.documentElement.setAttribute('data-theme', t);
