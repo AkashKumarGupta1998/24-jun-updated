@@ -948,7 +948,10 @@ function submitComment(){
   var name = document.getElementById('cmtName').value.trim();
   var text = document.getElementById('cmtText').value.trim();
   if(!name || !text){ showToast('Please enter your name and comment.'); return; }
-  if(GAS_URL === 'https://script.google.com/macros/s/AKfycbxVNKt-Sz8nh8WaMZG2Kd_n7ctI2ufM7OtMxk2fs_sGVd-xe_O3SYPh1e5CV1exwIAb/exec'){ showToast('GAS_URL not configured yet.'); return; }
+  if(!GAS_URL){
+    showToast('GAS URL is missing.');
+    return;
+}
 
   var btn = document.querySelector('.cmt-input-row .btn');
   btn.disabled = true;
