@@ -688,58 +688,6 @@ footer a:hover{opacity:1;color:#fff}
     </div>
   </div>
 </div>
-
-<!-- ADMIN MODAL — password-gated, READ-ONLY info panel.
-     There is NO post-writing UI here by design.
-     Posts are written only in the Google Sheet and fetched automatically. -->
-<div class="overlay admin-modal" id="adminModal">
-  <div class="modal">
-    <div class="modal-hd">
-      <h2>Blog Admin</h2>
-      <button class="cls-btn" onclick="closeOverlay('adminModal')"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="modal-body">
-      <div id="passGate" class="pass-gate">
-        <h3>🔐 Admin Access</h3>
-        <p>Enter the admin password to view blog management info.</p>
-        <div class="pass-row">
-          <input type="password" id="passInput" placeholder="Password" onkeydown="if(event.key==='Enter')checkPass()">
-          <button class="btn btn-p" onclick="checkPass()">Enter</button>
-        </div>
-        <p class="admin-note">Default password: <code>akash2024</code></p>
-      </div>
-      <div id="adminPanel" style="display:none">
-        <div style="background:color-mix(in srgb,var(--green) 8%,transparent);border:1px solid color-mix(in srgb,var(--green) 22%,transparent);border-radius:var(--r);padding:14px 18px;margin-bottom:18px;display:flex;gap:10px;align-items:center">
-          <i class="fas fa-circle-check" style="color:var(--green)"></i>
-          <div><strong style="font-size:.88rem;color:var(--text)">This site is read-only by design</strong><br><small style="color:var(--text2)">All posts are written in Google Sheets — there is no post editor here. The website only fetches and displays what's in the Sheet.</small></div>
-        </div>
-        <div class="info-grid">
-          <div class="info-box"><div class="ib-ico">📝</div><strong>Write a Post</strong><small>Open the Google Sheet → Posts tab → add a new row → set status to <code>published</code></small></div>
-          <div class="info-box"><div class="ib-ico">🖼️</div><strong>Add Image / Chart</strong><small>Paste a direct image URL in <code>imageUrl</code>. Paste an iframe embed in <code>chartEmbed</code>.</small></div>
-          <div class="info-box"><div class="ib-ico">💬</div><strong>Moderate Comments</strong><small>Comments sheet → set <code>approved</code> column to <code>no</code> to hide a comment.</small></div>
-          <div class="info-box"><div class="ib-ico">📩</div><strong>View Messages</strong><small>Messages sheet shows every contact form submission with name, email, and message.</small></div>
-        </div>
-        <strong style="font-size:.85rem;color:var(--text);display:block;margin-bottom:8px">Posts Sheet Columns</strong>
-        <table class="col-ref">
-          <tr><td>postId</td><td>Unique ID e.g. p1001, p1002 (no spaces)</td></tr>
-          <tr><td>date</td><td>YYYY-MM-DD format e.g. 2026-06-17</td></tr>
-          <tr><td>title</td><td>Post headline</td></tr>
-          <tr><td>category</td><td>Operations / Logistics / Quick Commerce etc.</td></tr>
-          <tr><td>excerpt</td><td>Short teaser shown on card (optional)</td></tr>
-          <tr><td>content</td><td>Full body. Leave a blank line between paragraphs.</td></tr>
-          <tr><td>imageUrl</td><td>Direct link to cover image (optional)</td></tr>
-          <tr><td>chartEmbed</td><td>Full &lt;iframe&gt; embed from Google Sheets/Looker (optional)</td></tr>
-          <tr><td>authorNote</td><td>Italic callout shown at bottom of post (optional)</td></tr>
-          <tr><td>status</td><td><code>published</code> to show · anything else hides it</td></tr>
-        </table>
-        <button class="btn btn-p" style="margin-top:18px" onclick="loadPosts();closeOverlay('adminModal');showToast('Posts refreshed!')">
-          <i class="fas fa-rotate"></i> Refresh Posts
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <script>
 // CONFIG — paste your Apps Script Web App URL here
 var GAS_URL = 'https://script.google.com/macros/s/AKfycbxVNKt-Sz8nh8WaMZG2Kd_n7ctI2ufM7OtMxk2fs_sGVd-xe_O3SYPh1e5CV1exwIAb/exec';
